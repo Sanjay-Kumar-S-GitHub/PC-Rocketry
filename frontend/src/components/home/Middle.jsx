@@ -10,7 +10,7 @@ export default function Middle(){
             <h2 className="text-3xl font-medium">What</h2>
             <p className="mb-5">We build rockets! Learn more about us here.</p>
             <div className="flex flex-row justify-end">
-                <button className="border-2 rounded-2xl w-30 h-10 text-lg hover:bg-black hover:text-white hover:font-medium cursor-pointer">Learn More</button>
+                <button className="border-2 rounded-2xl w-30 h-10 text-lg hover:bg-black hover:text-white hover:font-bold cursor-pointer">Learn More</button>
             </div>
         </div>
         <div className="w-1/2 bg-[url('/middle.jpeg')] bg-center bg-cover h-150">
