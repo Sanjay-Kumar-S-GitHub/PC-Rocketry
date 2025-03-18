@@ -11,7 +11,7 @@ export default function Footer(){
                 <p>|</p>
                 <Link href="/blog">BLOG</Link>
                 <p>|</p>
-                <Link href="/">MISSIONS</Link>
+                <Link href="/missions">MISSIONS</Link>
                 <p>|</p>
                 <Link href="/">SUPPORT US</Link>
             </div>
