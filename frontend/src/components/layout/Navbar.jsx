@@ -7,10 +7,10 @@ export default function Navbar(){
             <img src="/svnit.png" className="h-20 w-20"/>
             <div className="flex flex-row items-center justify-center gap-14 pl-40">
                 <Link href="/" className="hover:underline hover:underline-offset-5 hover:decoration-2">HOME</Link>
-                <Link href="/" className="hover:underline hover:underline-offset-5 hover:decoration-2">ABOUT</Link>
+                <Link href="/about" className="hover:underline hover:underline-offset-5 hover:decoration-2">ABOUT</Link>
                 <Link href="/blog" className="hover:underline hover:underline-offset-5 hover:decoration-2">BLOG</Link>
                 <Link href="/missions" className="hover:underline hover:underline-offset-5 hover:decoration-2">MISSIONS</Link>
-                <Link href="/" className="hover:underline hover:underline-offset-5 hover:decoration-2">SUPPORT US</Link>
+                <Link href="/contactus" className="hover:underline hover:underline-offset-5 hover:decoration-2">CONTACT US</Link>
             </div>
         </div>
     )

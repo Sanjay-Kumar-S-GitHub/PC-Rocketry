@@ -7,13 +7,13 @@ export default function Footer(){
         <div className="flex flex-col gap-4 justify-center items-center h-150 bg-gray-500 text-white">
             <img src="/pc-logo.png" className="h-35 w-35"/>
             <div className="flex flex-row gap-2 text-sm font-bold underline">
-                <Link href="/">ABOUT</Link>
+                <Link href="/about">ABOUT</Link>
                 <p>|</p>
                 <Link href="/blog">BLOG</Link>
                 <p>|</p>
                 <Link href="/missions">MISSIONS</Link>
                 <p>|</p>
-                <Link href="/">SUPPORT US</Link>
+                <Link href="/contactus">CONTACT US</Link>
             </div>
             <div className="flex flexx-row gap-4">
                 <BsTwitterX className="text-2xl  hover:text-black cursor-pointer"/>
