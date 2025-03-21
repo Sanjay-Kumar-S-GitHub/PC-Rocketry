@@ -15,7 +15,7 @@ export default function Footer(){
                 <p>|</p>
                 <Link href="/contactus">CONTACT US</Link>
             </div>
-            <div className="flex flexx-row gap-4">
+            <div className="flex flexx-row gap-5">
                 <BsTwitterX className="text-2xl  hover:text-black cursor-pointer"/>
                 <FaYoutube className="text-2xl  hover:text-black cursor-pointer"/>
                 <FaLinkedin className="text-2xl  hover:text-black cursor-pointer"/>
