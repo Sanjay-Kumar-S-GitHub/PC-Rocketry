@@ -158,5 +158,27 @@
         "head": false,
         "member": false,
         "recruit": true
+    },
+
+
+    {
+        "id": 16,
+        "image": "/team/member1.jpg",
+        "name": "Sanjay Kumar",
+        "position": "Web Developer",
+        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
+        "head": true,
+        "member": false,
+        "recruit": false
+    },
+    {
+        "id": 17,
+        "image": "/team/member1.jpg",
+        "name": "Sanjay Kumar",
+        "position": "Web Developer",
+        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
+        "head": true,
+        "member": false,
+        "recruit": false
     }
 ]
