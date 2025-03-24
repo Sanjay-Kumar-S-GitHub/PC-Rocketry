@@ -1,25 +1,25 @@
 import Image from "next/image";
 
-const Heads = ({ teamData = [] }) => {
+const Executives = ({ teamData = [] }) => {
     console.log("Team Prop:", teamData); 
 
     if (!teamData.length) {
         return <p>No team members found.</p>;
     }
 
-    const headCommittee = teamData.filter((teamMember)=>(teamMember.committee==="head"));
-    console.log("headCommittee Prop:", headCommittee);
+    const executiveCommittee = teamData.filter((teamMember)=>(teamMember.committee==="executive"));
+    console.log("executiveCommittee Prop:", executiveCommittee);
 
-    const heads = headCommittee[0].members;
-    console.log("Heads Prop:", heads);
+    const executives = executiveCommittee[0].members;
+    console.log("Executives Prop:", executives);
 
     return (
         <div className="flex flex-col justify-center items-center my-30">
-            <h1 className="text-5xl font-medium">HEADS</h1>
-            <div className={`${heads.length < 3 ? "flex flex-row justify-around" : "grid grid-cols-3"}`}>
+            <h1 className="text-5xl font-medium">EXECUTIVES</h1>
+            <div className={`${executives.length < 3 ? "flex flex-row justify-around" : "grid grid-cols-3"}`}>
                 {
-                    heads.map((head)=>(
-                        <div key={head.id} className={`${heads.length < 3 ? "mx-40 mt-20 text-center" : "mx-20 mt-20 text-center"}`}>
+                    executives.map((head)=>(
+                        <div key={head.id} className={`${executives.length < 3 ? "mx-40 mt-20 text-center" : "mx-20 mt-20 text-center"}`}>
                             <Image src={head.image} alt={head.name} width={250} height={250} className="rounded-xl"/>
                             <h2 className="text-3xl font-medium mt-3">{head.name}</h2>
                             <p className="text-lg font-light">{head.position}</p>
@@ -33,4 +33,4 @@ const Heads = ({ teamData = [] }) => {
     );
 };
 
-export default Heads;
+export default Executives;

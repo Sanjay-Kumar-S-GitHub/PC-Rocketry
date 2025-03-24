@@ -38,6 +38,7 @@ import AboutDescription from "@/components/about/AboutDescription";
 import AboutTop from "@/components/about/AboutTop";
 import OurStory from "@/components/about/OurStory";
 import Heads from "@/components/about/Heads";
+import Executives from "@/components/about/Executives";
 
 export const dynamic = "force-static";
 
@@ -66,6 +67,7 @@ const About = async () => {
             <AboutDescription />
             <OurStory />
             <Heads teamData={teamData} />
+            <Executives teamData={teamData} />
         </>
     );
 };
