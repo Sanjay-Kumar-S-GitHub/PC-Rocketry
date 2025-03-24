@@ -1,184 +1,113 @@
 [
     {
-        "id": 1,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": true,
-        "member": false,
-        "recruit": false
-    },
-    {
-        "id": 2,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": true,
-        "member": false,
-        "recruit": false
-    },
-    {
-        "id": 3,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": true,
-        "recruit": false
-    },
-    {
-        "id": 3,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": true,
-        "recruit": false
-    },
-    {
-        "id": 4,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": true,
-        "recruit": false
-    },
-    {
-        "id": 5,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": true,
-        "recruit": false
-    },
-    {
-        "id": 6,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": true,
-        "recruit": false
-    },
-    {
-        "id": 7,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 8,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 9,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 10,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 11,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 12,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 13,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 14,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
-    },
-    {
-        "id": 15,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": false,
-        "member": false,
-        "recruit": true
+        "committee":"head",
+        "members":[
+            {
+                "id": 1,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 2,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 3,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 4,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            }
+        ]
     },
 
-
     {
-        "id": 16,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": true,
-        "member": false,
-        "recruit": false
-    },
-    {
-        "id": 17,
-        "image": "/team/member1.jpg",
-        "name": "Sanjay Kumar",
-        "position": "Web Developer",
-        "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/",
-        "head": true,
-        "member": false,
-        "recruit": false
+        "committee":"Executive",
+        "members":[
+            {
+                "id": 1,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 2,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 3,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 4,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 5,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 6,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 7,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            },
+            {
+                "id": 8,
+                "image": "/team/member1.png",
+                "name": "Sanjay Kumar",
+                "position": "Web Developer",
+                "dept":"Electrical Department",
+                "linkedin": "https://www.linkedin.com/in/sanjay-kumar-s-036368289/"     
+            }
+        ]
     }
 ]
+
+
+
+
