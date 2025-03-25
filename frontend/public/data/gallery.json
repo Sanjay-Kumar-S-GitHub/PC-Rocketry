@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "image": "/gallery/gallery1.jpeg",
+        "colSpan": "col-span-3",
+        "rowSpan": "row-span-5"
+    },
+    {
+        "id": 2,
+        "image": "/gallery/gallery2.jpeg",
+        "colSpan": "col-span-5",
+        "rowSpan": "row-span-3"
+    },
+    {
+        "id": 3,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 4,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 5,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-3",
+        "rowSpan": "row-span-3"
+    },
+    {
+        "id": 6,
+        "image": "/gallery/gallery2.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 7,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-3",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 8,
+        "image": "/gallery/gallery1.jpeg",
+        "colSpan": "col-span-3",
+        "rowSpan": "row-span-5"
+    },
+    {
+        "id": 9,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-5",
+        "rowSpan": "row-span-3"
+    },
+    {
+        "id": 10,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 11,
+        "image": "/gallery/gallery1.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-4"
+    },
+    {
+        "id": 12,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 13,
+        "image": "/gallery/gallery2.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 14,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 15,
+        "image": "/gallery/gallery1.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-2"
+    },
+    {
+        "id": 16,
+        "image": "/gallery/gallery2.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 17,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 18,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 19,
+        "image": "/gallery/gallery3.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 20,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    },
+    {
+        "id": 21,
+        "image": "/gallery/gallery1.jpeg",
+        "colSpan": "col-span-1",
+        "rowSpan": "row-span-2"
+    },
+    {
+        "id": 22,
+        "image": "/gallery/gallery4.jpeg",
+        "colSpan": "col-span-2",
+        "rowSpan": "row-span-1"
+    }
+]

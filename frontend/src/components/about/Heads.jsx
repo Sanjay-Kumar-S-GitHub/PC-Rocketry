@@ -24,7 +24,7 @@ const Heads = ({ teamData = [] }) => {
                             <h2 className="text-3xl font-medium mt-3">{head.name}</h2>
                             <p className="text-lg font-light">{head.position}</p>
                             <p className="text-md font-light">{head.dept}</p>
-                            <a href={head.linkedin}><button className="border-[1px] rounded-sm h-8 w-25 mt-3 hover:text-white hover:bg-black">CONNECT</button></a>
+                            <a href={head.linkedin} target="_blank"><button className="border-[1px] rounded-sm h-8 w-25 mt-3 hover:text-white hover:bg-black">CONNECT</button></a>
                         </div>
                     ))
                 }
