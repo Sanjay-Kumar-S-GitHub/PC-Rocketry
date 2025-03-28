@@ -23,7 +23,7 @@ const Heads = ({ teamData = [] }) => {
                 {
                     heads.map((head)=>(
                         <div key={head.id} className={`${heads.length < 3 ? "mx-40 mt-20 text-center" : "mx-20 mt-20 text-center"}`}>
-                            <SlideIn direction="up" delay={100}>
+                            <SlideIn direction="up">
                                 <Image src={head.image} alt={head.name} width={250} height={250} className="rounded-xl"/>
                                 <h2 className="text-3xl font-medium mt-3">{head.name}</h2>
                                 <p className="text-lg font-light">{head.position}</p>

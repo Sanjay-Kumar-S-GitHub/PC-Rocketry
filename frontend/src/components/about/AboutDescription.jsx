@@ -23,7 +23,9 @@ export default function AboutDescription(){
                         </div>
                     </SlideIn>
                 </div>
-                <Image src="/team.png" width={800} height={150} alt="team image"/>
+                <SlideIn direction="up" delay={200}>
+                    <Image src="/team.png" width={800} height={150} alt="team image"/>
+                </SlideIn>
             </div>
         </div>
     )
