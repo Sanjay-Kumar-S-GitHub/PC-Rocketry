@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from 'framer-motion';
+import SlideIn from "../slidein/SlideIn";
 
 export default function Updates(){
     const [updates, setUpdates]=useState([]);
@@ -35,75 +36,79 @@ export default function Updates(){
 
     return (
         <div className="flex flex-col justify-center items-center my-20">
-            <h1 className="text-7xl">UPDATES</h1>
-            <div className="relative">
-                {(index>0) && (<button
-                    onClick={prevSlide}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
-                >
-                    ◀
-                </button>
-                )}
+            <SlideIn direction="down" delay={200}>
+                <h1 className="text-7xl">UPDATES</h1>
+            </SlideIn>
+            <SlideIn direction="up">
+                <div className="relative">
+                    {(index>0) && (<button
+                        onClick={prevSlide}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
+                    >
+                        ◀
+                    </button>
+                    )}
 
-                <div className="overflow-hidden w-full flex justify-center items-center gap-14 h-80 px-5">
-                    <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.4 }}
-                        className="text-lg text-start shadow-xl h-60"
+                    <div className="overflow-hidden w-full flex justify-center items-center gap-14 h-80 px-5">
+                        <AnimatePresence mode="wait">
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -50 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-lg text-start shadow-xl h-60"
+                        >
+                            <img src={updates[index]?.image} className="h-40 w-85"/>
+                            <div className="mt-3 ml-3">
+                                <h1>{updates[index+2]?.title}</h1>
+                                <p className="text-base">{updates[index+2]?.date}</p>
+                            </div>
+                        </motion.div>
+                        </AnimatePresence>
+                        <AnimatePresence mode="wait">
+                        <motion.div
+                            key={index+1}
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -50 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-lg text-start shadow-xl h-60"
+                        >
+                            <img src={updates[index+1]?.image} className="h-40 w-85"/>
+                            <div className="mt-3 ml-3">
+                                <h1>{updates[index+2]?.title}</h1>
+                                <p className="text-base">{updates[index+2]?.date}</p>
+                            </div>
+                        </motion.div>
+                        </AnimatePresence>
+                        <AnimatePresence mode="wait">
+                        <motion.div
+                            key={index+2}
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -50 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-lg text-start shadow-xl h-60"
+                        >
+                            <img src={updates[index+2]?.image} className="h-40 w-85"/>
+                            <div className="mt-3 ml-3">
+                                <h1>{updates[index+2]?.title}</h1>
+                                <p className="text-base">{updates[index+2]?.date}</p>
+                            </div>
+                        </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {(index<updates.length-3) && (<button
+                        onClick={nextSlide}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
                     >
-                        <img src={updates[index]?.image} className="h-40 w-85"/>
-                        <div className="mt-3 ml-3">
-                            <h1>{updates[index+2]?.title}</h1>
-                            <p className="text-base">{updates[index+2]?.date}</p>
-                        </div>
-                    </motion.div>
-                    </AnimatePresence>
-                    <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index+1}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.4 }}
-                        className="text-lg text-start shadow-xl h-60"
-                    >
-                        <img src={updates[index+1]?.image} className="h-40 w-85"/>
-                        <div className="mt-3 ml-3">
-                            <h1>{updates[index+2]?.title}</h1>
-                            <p className="text-base">{updates[index+2]?.date}</p>
-                        </div>
-                    </motion.div>
-                    </AnimatePresence>
-                    <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index+2}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.4 }}
-                        className="text-lg text-start shadow-xl h-60"
-                    >
-                        <img src={updates[index+2]?.image} className="h-40 w-85"/>
-                        <div className="mt-3 ml-3">
-                            <h1>{updates[index+2]?.title}</h1>
-                            <p className="text-base">{updates[index+2]?.date}</p>
-                        </div>
-                    </motion.div>
-                    </AnimatePresence>
+                        ▶
+                    </button>
+                    )}
                 </div>
-
-                {(index<updates.length-3) && (<button
-                    onClick={nextSlide}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
-                >
-                    ▶
-                </button>
-                )}
-            </div>
+            </SlideIn>
         </div>
     );
 }
