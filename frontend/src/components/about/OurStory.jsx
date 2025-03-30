@@ -4,7 +4,7 @@ import SlideIn from "../slidein/SlideIn"
 export default function OurStory(){
     return (
         <SlideIn direction="up">
-            <div className="bg-[url('/ourstory.webp')] relative h-90 w-full flex flex-col gap-5 justify-center items-center bg-cover bg-center my-20">
+            <div className="bg-[url('/ourstory.webp')] relative h-90 w-full max-w-full flex flex-col gap-5 justify-center items-center bg-cover bg-center my-20">
                 <div className="absolute inset-0 bg-black opacity-75"></div>
                 <SlideIn direction="down" delay={400}>
                     <h2 className="text-3xl font-medium text-white z-10">OUR STORY</h2>

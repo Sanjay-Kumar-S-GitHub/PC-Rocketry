@@ -69,7 +69,7 @@ const About = async () => {
             <OurStory />
             <Heads teamData={teamData} />
             <Executives teamData={teamData} />
-            <Gallery />
+            {/* <Gallery /> */}
         </>
     );
 };

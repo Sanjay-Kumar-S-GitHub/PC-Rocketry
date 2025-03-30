@@ -41,3 +41,32 @@ body {
   cursor: url('/icons8-rocket-25-purple.png'), auto;
 }
 
+
+/* html, body{
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+} */
+
+
+/* body{
+  border: 5px solid red 
+} */
+/* 
+*{
+  border: 5px solid blue
+} */
+
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 5s linear infinite;
+}
