@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
+    images: {
+        domains: ['cdn.mos.cms.futurecdn.net'], 
+      },
     devIndicators: false
 };
 
@@ -8,7 +10,7 @@ export default nextConfig;
 
 // /** @type {import('next').NextConfig} */
 // const nextConfig = {
-//   output: "export", // Ensures full static export for deployment
+//   output: "export", 
 //   images: {
 //     unoptimized: true,
 //   },
