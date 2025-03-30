@@ -15,16 +15,16 @@ const Executives = ({ teamData = [] }) => {
     console.log("Executives Prop:", executives);
 
     return (
-        <div className="flex flex-col justify-center items-center my-30">
+        <div className="flex flex-col justify-center items-center my-20 w-full max-w-full">
             <SlideIn direction="down" delay={200}>
-                <h1 className="text-5xl font-medium">EXECUTIVES</h1>   
+                <h1 className="text-5xl md:text-7xl font-medium">EXECUTIVES</h1>   
             </SlideIn>
-            <div className={`${executives.length < 3 ? "flex flex-row justify-around" : "grid grid-cols-3"}`}>
+            <div className={`${executives.length < 3 ? "flex flex-row justify-around" : "grid md:grid-cols-2 lg:grid-cols-3"}`}>
                 {
                     executives.map((head)=>(
-                        <div key={head.id} className={`${executives.length < 3 ? "mx-40 mt-20 text-center" : "mx-20 mt-20 text-center"}`}>
+                        <div key={head.id} className={`${executives.length < 3 ? "mx-10 md:mx-25 lg:mx-40 mt-10 md:mt-15 lg:mt-20 text-center" : "mx-10 md:mx-15 mt-10 md:mt-15 lg:mt-20 text-center"}`}>
                             <SlideIn direction="up">
-                                <Image src={head.image} alt={head.name} width={250} height={250} className="rounded-xl"/>
+                                <Image src={head.image} alt={head.name} width={274} height={275} className="rounded-xl"/>
                                 <h2 className="text-3xl font-medium mt-3">{head.name}</h2>
                                 <p className="text-lg font-light">{head.position}</p>
                                 <p className="text-md font-light">{head.dept}</p>
