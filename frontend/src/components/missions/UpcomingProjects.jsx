@@ -1,28 +1,30 @@
-'use client'
-
-import { useEffect, useState } from "react"
 import SlideIn from "../slidein/SlideIn";
 import Image from "next/image";
 
-export default function UpcomingProjects(){
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
+export const dynamic = "force-static";
 
-    useEffect(()=>{
-        fetch('/data/upcomingProjects.json')
-        .then((res)=>res.json())
-        .then((data)=>{
-            setProjects(data);
-            setLoading(false);
-        })
-        .catch((error)=>{
-            console.log('Error loading projects: ',error);
-            setLoading(false);
-        });
-    },[]);
+async function getProjects(){
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-    if(loading) return <p>Loading projects...</p>;
-    if(projects.length === 0) return <p>No projects available.</p>;
+    try{
+        const res = await fetch(`${baseUrl}/data/upcomingProjects.json`);
+        if(!res.ok) throw new Error("Failed to fetch upcoming projects");
+
+        const data = await res.json();
+        console.log("Fetched upcoming projects data: ", data);
+        return Array.isArray(data)? data : [];
+    } catch(error){
+        console.log("Error fetching upcoming projects data: ",error);
+        return [];
+    }
+}
+
+const UpcomingProjects=async()=>{
+    const projects = await getProjects();
+
+    if(!projects.length){
+        return <p>No previous projects to display</p>
+    }
 
     return(
         <div className="pb-15 md:pb-20 pt-5 w-full max-w-full">
@@ -47,3 +49,5 @@ export default function UpcomingProjects(){
         </div>
     )
 }
+
+export default UpcomingProjects;
