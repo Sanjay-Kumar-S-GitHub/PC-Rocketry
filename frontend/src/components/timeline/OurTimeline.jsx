@@ -23,17 +23,17 @@ const OurTimeline = async()=>{
     const events = await getTimelineData();
 
     return(
-        <div className="relative mx-auto px-30 mt-25 mb-35">
+        <div className="relative  pl-15 pr-10 md:px-10 mt-15 md:mt-20 lg:mt-25 mb-35 w-full max-w-full">
             <SlideIn direction="down" delay={200}>
-                <h1 className="font-semibold text-6xl text-center mb-15">WE TIMED THEM</h1>
+                <h1 className="font-semibold text-6xl text-center mb-10 md:mb-15">WE TIMED THEM</h1>
             </SlideIn>
-            <div className="absolute left-1/2 transform -translate-x-1 bg-black w-[2px] h-full">
+            <div className="absolute left-10 md:left-1/2 transform -translate-x-1 bg-black w-[2px] h-[calc(100%-100px)]">
             </div>
             {events.map((event) => (
-            <div key={event.id} className={`mt-15 flex ${event.id % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                <div className="w-1/2 flex justify-center">
+            <div key={event.id} className={`mt-10 md:mt-15 flex ${event.id % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div className="md:w-1/2 flex justify-center">
                     <SlideIn direction={`${event.id%2==0 ? 'right' : 'left'}`}>
-                        <div className="w-[450px]">
+                        <div className="md:w-[300px] lg:w-[400px]">
                             <p className="text-xl font-light">{event.date}</p>
                             <h2 className="text-4xl font-semibold my-2">{event.title}</h2>
                             <p className="mb-3">{event.description}</p>
@@ -41,7 +41,7 @@ const OurTimeline = async()=>{
                         </div>
                     </SlideIn>
                 </div>
-                <div className="w-1/2">
+                <div className="hidden md:block w-1/2 ">
                 </div>
             </div>
             ))}
