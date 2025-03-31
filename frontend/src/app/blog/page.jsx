@@ -2,6 +2,8 @@ import BlogTop from "@/components/Blog/BlogTop";
 import Updates from "@/components/Blog/Updates";
 import Blogs from "@/components/Blog/Blogs";
 
+export const dynamic = "force-static";
+
 export async function getBlogs() {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     

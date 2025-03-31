@@ -29,7 +29,7 @@ const UpcomingProjects=async()=>{
     return(
         <div className="pb-15 md:pb-20 pt-5 w-full max-w-full">
             <SlideIn direction="down" delay={200}>
-                <h1 className="text-center text-5xl md:text-7xl font-medium py-10">YET TO BE LAUNCHED</h1>
+                <h1 className="text-center text-4xl md:text-7xl font-medium py-10">YET TO BE LAUNCHED</h1>
             </SlideIn>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14 mx-10 md:mx-15">
                 {

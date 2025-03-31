@@ -17,7 +17,7 @@ const Executives = ({ teamData = [] }) => {
     return (
         <div className="flex flex-col justify-center items-center my-20 w-full max-w-full">
             <SlideIn direction="down" delay={200}>
-                <h1 className="text-5xl md:text-7xl font-medium">EXECUTIVES</h1>   
+                <h1 className="text-4xl md:text-7xl font-medium">EXECUTIVES</h1>   
             </SlideIn>
             <div className={`${executives.length < 3 ? "flex flex-row justify-around" : "grid md:grid-cols-2 lg:grid-cols-3"}`}>
                 {
