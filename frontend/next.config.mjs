@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.mos.cms.futurecdn.net'], 
+        domains: ['cdn.mos.cms.futurecdn.net'],
+        remotePatterns: [
+          {
+              protocol: 'https',
+              hostname: 'www.sciencebuddies.org',
+          },
+      ], 
       },
     devIndicators: false
 };

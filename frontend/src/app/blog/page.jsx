@@ -1,18 +1,3 @@
-// import Blogs from "@/components/Blog/Blogs";
-// import BlogTop from "@/components/Blog/BlogTop";
-// import Updates from "@/components/Blog/Updates";
-
-// export default function Blog(){
-//     return(
-//         <>
-//             <BlogTop/>
-//             <Updates/>
-//             <Blogs/>
-//         </>
-//     )
-// }
-
-
 import BlogTop from "@/components/Blog/BlogTop";
 import Updates from "@/components/Blog/Updates";
 import Blogs from "@/components/Blog/Blogs";
@@ -32,13 +17,29 @@ export async function getBlogs() {
     }
 }
 
+export async function getUpdates() {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    
+    try {
+        const res = await fetch(`${baseUrl}/data/updates.json`);
+        if (!res.ok) throw new Error("Failed to fetch updates");
+
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        console.error("Error fetching update:", error);
+        return [];
+    }
+}
+
 const Blog=async() => {
     const blogs = await getBlogs();
+    const updates = await getUpdates();
 
     return (
         <>
             <BlogTop />
-            <Updates />
+            <Updates updates={updates}/>
             <Blogs blogs={blogs} />
         </>
     );

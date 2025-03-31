@@ -1,204 +1,121 @@
-// //'use client'
-
-// import { motion, AnimatePresence } from 'framer-motion';
-// import SlideIn from "../slidein/SlideIn";
-// //import { useState } from 'react';
-
-// export const dynamic = "force-static";
-
-// async function getBlogs(){
-//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-
-//     try{
-//         const res = await fetch(`${baseUrl}/data/blogs.json`);
-//         if(!res.ok) throw new Error("Failed to fetch blogs");
-
-//         const data = await res.json();
-//         console.log("Fetched blogs data: ", data);
-//         return Array.isArray(data)? data : [];
-//     } catch(error){
-//         console.log("Error fetching blogs data: ",error);
-//         return [];
-//     }
-// }
-
-// const Blogs=async()=>{
-//     const blogs = await getBlogs();
-
-//     if(!blogs.length){
-//         return <p>No images to display</p>
-//     }
-    
-//     // const [index, setIndex] = useState(0);
-
-//     // const nextSlide = () => {
-//     //     setIndex((prevIndex) => (prevIndex + 1) % blogs.length);
-//     // };
-
-//     // const prevSlide = () => {
-//     //     setIndex((prevIndex) => (prevIndex - 1 + blogs.length) % blogs.length);
-//     // };
-
-//     let index=0;
-//     const nextSlide=()=>{
-//         index=(index+1)%blogs.length;
-//     }
-//     const prevSlide=()=>{
-//         index=(index-1+blogs.length)%blogs.length;
-//     }
-
-//     return (
-//         <div className="flex flex-col justify-center items-center my-20">
-//             <SlideIn direction="down" delay={200}>
-//                 <h1 className="text-7xl">BLOGS</h1>
-//             </SlideIn>
-//             <SlideIn direction="up">
-//                 <div className="relative">
-//                     {(index>0) && (<button
-//                         onClick={prevSlide}
-//                         className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
-//                     >
-//                         ◀
-//                     </button>
-//                     )}
-
-//                     <div className="overflow-hidden w-full flex justify-center items-center gap-14 h-95 px-5">
-//                         <AnimatePresence mode="wait">
-//                         <motion.div
-//                             key={index}
-//                             initial={{ opacity: 0, x: 50 }}
-//                             animate={{ opacity: 1, x: 0 }}
-//                             exit={{ opacity: 0, x: -50 }}
-//                             transition={{ duration: 0.4 }}
-//                             className="text-start shadow-xl h-75 w-85"
-//                         >
-//                             <img src={blogs[index]?.image} className="h-40 w-85 mb-3"/>
-//                             <div className="mt-3 ml-3">
-//                                 <h1 className="text-lg font-medium">{blogs[index+2]?.title}</h1>
-//                                 <p className="text-sm font-extralight">{blogs[index+2]?.description}</p>
-//                             </div>
-//                             <button className="border rounded-sm text-center h-8 w-77 m-4 hover:text-white hover:bg-black cursor-pointer">READ MORE</button>
-//                         </motion.div>
-//                         </AnimatePresence>
-//                         <AnimatePresence mode="wait">
-//                         <motion.div
-//                             key={index+1}
-//                             initial={{ opacity: 0, x: 50 }}
-//                             animate={{ opacity: 1, x: 0 }}
-//                             exit={{ opacity: 0, x: -50 }}
-//                             transition={{ duration: 0.4 }}
-//                             className="text-start shadow-xl h-75 w-85"
-//                         >
-//                             <img src={blogs[index+1]?.image} className="h-40 w-85 mb-3"/>
-//                             <div className="mt-3 ml-3">
-//                                 <h1 className="text-lg font-medium">{blogs[index+2]?.title}</h1>
-//                                 <p className="text-sm font-extralight">{blogs[index+2]?.description}</p>
-//                             </div>
-//                             <button className="border rounded-sm text-center h-8 w-77 m-4 hover:text-white hover:bg-black cursor-pointer">READ MORE</button>
-//                         </motion.div>
-//                         </AnimatePresence>
-//                         <AnimatePresence mode="wait">
-//                         <motion.div
-//                             key={index+2}
-//                             initial={{ opacity: 0, x: 50 }}
-//                             animate={{ opacity: 1, x: 0 }}
-//                             exit={{ opacity: 0, x: -50 }}
-//                             transition={{ duration: 0.4 }}
-//                             className="text-start shadow-xl h-75 w-85"
-//                         >
-//                             <img src={blogs[index+2]?.image} className="h-40 w-85"/>
-//                             <div className="mt-3 ml-3">
-//                                 <h1 className="text-lg font-medium">{blogs[index+2]?.title}</h1>
-//                                 <p className="text-sm font-extralight">{blogs[index+2]?.description}</p>
-//                             </div>
-//                             <button className="border rounded-sm text-center h-8 w-77 m-4 hover:text-white hover:bg-black cursor-pointer">READ MORE</button>
-//                         </motion.div>
-//                         </AnimatePresence>
-//                     </div>
-
-//                     {(index<blogs.length-3) && (<button
-//                         onClick={nextSlide}
-//                         className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 px-2 py-1 rounded-4xl"
-//                     >
-//                         ▶
-//                     </button>
-//                     )}
-//                 </div>
-//             </SlideIn>
-//         </div>
-//     );
-// }
-
-// export default Blogs;
-
-
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import SlideIn from "../slidein/SlideIn";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Blogs({ blogs }) {
     const [index, setIndex] = useState(0);
+    const [visibleCount, setVisibleCount] = useState(1);
+    const [windowWidth, setWindowWidth] = useState(0);
 
-    const nextSlide = () => setIndex((prev) => (prev + 1) % blogs.length);
-    const prevSlide = () => setIndex((prev) => (prev - 1 + blogs.length) % blogs.length);
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            setWindowWidth(width);
+            
+            if (width >= 1024) {
+                setVisibleCount(3);
+            } else if (width >= 768) {
+                setVisibleCount(2);
+            } else {
+                setVisibleCount(1);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const nextSlide = () => {
+        if (index < blogs.length - visibleCount) {
+            setIndex(prev => prev + 1);
+        } else {
+            setIndex(0);
+        }
+    };
+
+    const prevSlide = () => {
+        if (index > 0) {
+            setIndex(prev => prev - 1);
+        } else {
+            setIndex(blogs.length - visibleCount);
+        }
+    };
+
+    const getCardWidth = () => {
+        if (windowWidth >= 1024) return 'calc(33.333% - 1.5rem)';   
+        if (windowWidth >= 768) return 'calc(50% - 1.5rem)';      
+        return 'calc(100% - 2rem)';                                
+    };
 
     return (
-        <div className="flex flex-col justify-center items-center my-20">
+        <div className="flex flex-col justify-center items-center my-10 px-4 sm:px-6">
             <SlideIn direction="down" delay={200}>
-                <h1 className="text-4xl font-bold">BLOGS</h1>
+                <h1 className="text-5xl font-semibold">BLOGS</h1>
             </SlideIn>
 
             <SlideIn direction="up">
-                <div className="relative flex justify-center items-center w-full max-w-5xl overflow-hidden">
+                <div className="relative w-full max-w-5xl">
                     {index > 0 && (
                         <button
                             onClick={prevSlide}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 px-3 py-2 rounded-full hover:bg-gray-300 transition"
+                            className="absolute left-4 sm:left-4 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
+                            aria-label="Previous"
                         >
                             ◀
                         </button>
                     )}
 
-                    <div className="flex justify-center items-center w-full px-5 my-10">
-                        <AnimatePresence initial={false} mode="wait">
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -50 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="grid grid-cols-1 sm:grid-cols-3 gap-10"
-                            >
-                                {[0, 1, 2].map((offset) => {
-                                    const blog = blogs[(index + offset) % blogs.length];
-                                    return (
-                                        <div
-                                            key={blog?.id}
-                                            className="text-start shadow-xl h-auto w-72 p-4 bg-white rounded-lg"
-                                        >
-                                            <img
-                                                src={blog?.image}
-                                                className="h-40 w-full mb-3 rounded-md object-cover"
-                                                alt={blog?.title}
-                                            />
-                                            <h1 className="text-lg font-medium">{blog?.title}</h1>
-                                            <p className="text-sm font-light">{blog?.description}</p>
-                                            <button className="border rounded-sm text-center h-8 w-full mt-4 hover:text-white hover:bg-black transition cursor-pointer">
-                                                READ MORE
-                                            </button>
-                                        </div>
-                                    );
-                                })}
-                            </motion.div>
-                        </AnimatePresence>
+                    <div className="w-full py-10 overflow-visible">
+                        <div className="mx-auto w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)]">
+                            <AnimatePresence initial={false} mode="wait">
+                                <motion.div
+                                    key={`${index}-${visibleCount}`}
+                                    initial={{ opacity: 0, x: 50 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -50 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    className="flex gap-6 w-full"  
+                                >
+                                    {Array.from({ length: visibleCount }).map((_, offset) => {
+                                        const blog = blogs[(index + offset) % blogs.length];
+                                        return (
+                                            <motion.div
+                                                key={blog?.id}
+                                                className="bg-white rounded-lg shadow-xl flex-shrink-0 overflow-visible mx-auto"
+                                                style={{ width: getCardWidth() }}
+                                                whileHover={{ y: -5 }}
+                                            >
+                                                <div className="p-6">
+                                                    <Image
+                                                        src={blog.image}
+                                                        alt="blog image"
+                                                        width={400}
+                                                        height={250}
+                                                        className="h-40 w-full object-cover mb-4 rounded-md"
+                                                    />
+                                                    <h2 className="text-lg font-medium mb-2">{blog?.title}</h2>
+                                                    <p className="text-sm font-light mb-4 line-clamp-3">{blog?.description}</p>
+                                                    <button className="w-full py-2 border border-black rounded-sm hover:bg-black hover:text-white transition-colors">
+                                                        READ MORE
+                                                    </button>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
                     </div>
 
-                    {index < blogs.length - 3 && (
+                    {index < blogs.length - visibleCount && (
                         <button
                             onClick={nextSlide}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 px-3 py-2 rounded-full hover:bg-gray-300 transition"
+                            className="absolute right-6 sm:right-4 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
+                            aria-label="Next"
                         >
                             ▶
                         </button>
