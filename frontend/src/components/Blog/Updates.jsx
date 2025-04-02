@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Updates({ updates }) {
+    console.log("Updates: ",updates);
+
     const [index, setIndex] = useState(0);
     const [visibleCount, setVisibleCount] = useState(1);
     const [windowWidth, setWindowWidth] = useState(0);
@@ -74,29 +76,33 @@ export default function Updates({ updates }) {
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                     className="flex gap-6 w-full justify-center"
                                 >
-                                    {Array.from({ length: visibleCount }).map((_, offset) => {
-                                        const update = updates[(index + offset) % updates.length];
-                                        return (
-                                            <motion.div
-                                                key={update?.id}
-                                                className="bg-white rounded-lg shadow-xl flex-shrink-0 overflow-visible"
-                                                style={{ width: '288px' }}
-                                                whileHover={{ y: -5 }}
-                                            >
-                                                <div className="p-6">
-                                                    <Image
-                                                        src={update.image}
-                                                        alt="update image"
-                                                        width={400}
-                                                        height={250}
-                                                        className="h-40 w-full object-cover mb-4 rounded-md"
-                                                    />
-                                                    <h2 className="text-lg font-medium mb-2">{update?.title}</h2>
-                                                    <p className="text-sm font-light mb-4 line-clamp-3">{update?.date}</p>
-                                                </div>
-                                            </motion.div>
-                                        );
-                                    })}
+                                    {updates.length===0 ? (
+                                        <p>No updates available</p>
+                                    ):(
+                                        Array.from({ length: visibleCount }).map((_, offset) => {
+                                            const update = updates[(index + offset) % updates.length];
+                                            return (
+                                                <motion.div
+                                                    key={update?.id}
+                                                    className="bg-white rounded-lg shadow-xl flex-shrink-0 overflow-visible"
+                                                    style={{ width: '288px' }}
+                                                    whileHover={{ y: -5 }}
+                                                >
+                                                    <div className="p-6">
+                                                        <Image
+                                                            src={update.image}
+                                                            alt="update image"
+                                                            width={400}
+                                                            height={250}
+                                                            className="h-40 w-full object-cover mb-4 rounded-md"
+                                                        />
+                                                        <h2 className="text-lg font-medium mb-2">{update?.title}</h2>
+                                                        <p className="text-sm font-light mb-4 line-clamp-3">{update?.date}</p>
+                                                    </div>
+                                                </motion.div>
+                                            );
+                                        })
+                                    )}
                                 </motion.div>
                             </AnimatePresence>
                         </div>

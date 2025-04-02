@@ -1,12 +1,8 @@
 import Image from "next/image";
 import SlideIn from "../slidein/SlideIn";
 
-const Executives = ({ teamData = [] }) => {
+export default function Executives({ teamData }){
     console.log("Team Prop:", teamData); 
-
-    if (!teamData.length) {
-        return <p>No team members found.</p>;
-    }
 
     const executiveCommittee = teamData.filter((teamMember)=>(teamMember.committee==="executive"));
     console.log("executiveCommittee Prop:", executiveCommittee);
@@ -20,7 +16,9 @@ const Executives = ({ teamData = [] }) => {
                 <h1 className="text-4xl md:text-7xl font-medium">EXECUTIVES</h1>   
             </SlideIn>
             <div className={`${executives.length < 3 ? "flex flex-row justify-around" : "grid md:grid-cols-2 lg:grid-cols-3"}`}>
-                {
+                {executives.length===0 ? (
+                    <p>No executives available</p>
+                ):(
                     executives.map((head)=>(
                         <div key={head.id} className={`${executives.length < 3 ? "mx-10 md:mx-25 lg:mx-40 mt-10 md:mt-15 lg:mt-20 text-center" : "mx-10 md:mx-15 mt-10 md:mt-15 lg:mt-20 text-center"}`}>
                             <SlideIn direction="up">
@@ -32,10 +30,8 @@ const Executives = ({ teamData = [] }) => {
                             </SlideIn>
                         </div>
                     ))
-                }
+                )}
             </div>
         </div>
     );
 };
-
-export default Executives;

@@ -1,12 +1,8 @@
 import Image from "next/image";
 import SlideIn from "../slidein/SlideIn";
 
-const Heads = ({ teamData = [] }) => {
-    console.log("Team Prop:", teamData); 
-
-    if (!teamData.length) {
-        return <p>No team members found.</p>;
-    }
+export default function Heads({ teamData}){
+    console.log("Team Prop: ", teamData); 
 
     const headCommittee = teamData.filter((teamMember)=>(teamMember.committee==="head"));
     console.log("headCommittee Prop:", headCommittee);
@@ -20,7 +16,9 @@ const Heads = ({ teamData = [] }) => {
                 <h1 className="text-4xl md:text-7xl font-medium">HEADS</h1>
             </SlideIn>
             <div className={`${heads.length < 3 ? "flex flex-col md:flex-row justify-around" : "grid md:grid-cols-2 lg:grid-cols-3"}`}>
-                {
+                {heads.length===0 ? (
+                    <p>No heads available</p>
+                ):(
                     heads.map((head)=>(
                         <div key={head.id} className={`${heads.length < 3 ? "mx-10 md:mx-25 lg:mx-40 mt-10 md:mt-15 lg:mt-20 text-center" : "mx-10 md:mx-15 mt-10 md:mt-15 lg:mt-20 text-center"}`}>
                             <SlideIn direction="up">
@@ -32,10 +30,8 @@ const Heads = ({ teamData = [] }) => {
                             </SlideIn>
                         </div>
                     ))
-                }
+                )}
             </div>
         </div>
     );
 };
-
-export default Heads;

@@ -1,39 +1,3 @@
-// import AboutDescription from "@/components/about/AboutDescription";
-// import AboutTop from "@/components/about/AboutTop";
-// import OurStory from "@/components/about/OurStory";
-// import Heads from "@/components/about/Heads";
-
-// export const dynamic = "force-static";
-// export async function getTeamData() {
-//     const baseUrl =
-//       process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  
-//     const res = await fetch(`${baseUrl}/data/team.json`);
-  
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch team data");
-//     }
-  
-//     return res.json();
-//   }
-  
-// const About = async () => {
-//     const teamData = await getTeamData();
-
-//     return(
-//         <>
-//             <AboutTop/>
-//             <AboutDescription/>
-//             <OurStory/>
-//             <Heads heads={teamData}/>
-//         </>
-//     )
-// }
-
-// export default About;
-
-
-
 import AboutDescription from "@/components/about/AboutDescription";
 import AboutTop from "@/components/about/AboutTop";
 import OurStory from "@/components/about/OurStory";
@@ -41,26 +5,24 @@ import Heads from "@/components/about/Heads";
 import Executives from "@/components/about/Executives";
 import Gallery from "@/components/about/Gallery";
 
-export const dynamic = "force-static";
+import fs from 'fs';
+import path from 'path';
 
-export async function getTeamData() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+export const dynamic = 'force-static';
 
+async function getTeam(){
     try {
-        const res = await fetch(`${baseUrl}/data/team.json`);
-        if (!res.ok) throw new Error("Failed to fetch team data");
-
-        const data = await res.json();
-        console.log("Fetched team data:", data); 
-        return Array.isArray(data) ? data : []; 
+        const filePath = path.join(process.cwd(),'public', 'data', 'team.json');
+        const jsonData = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(jsonData);
     } catch (error) {
-        console.error("Error fetching team data:", error);
-        return []; 
+        console.error("Error reading team.json:", error);
+        return [];
     }
 }
 
-const About = async () => {
-    const teamData = await getTeamData();
+export default async function About() {
+    const teamData = await getTeam();
 
     return (
         <>
@@ -73,5 +35,3 @@ const About = async () => {
         </>
     );
 };
-
-export default About;

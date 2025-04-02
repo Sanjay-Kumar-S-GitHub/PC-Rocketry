@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Blogs({ blogs }) {
+    console.log("blogs: ",blogs);
+
     const [index, setIndex] = useState(0);
     const [visibleCount, setVisibleCount] = useState(1);
     const [windowWidth, setWindowWidth] = useState(0);
@@ -62,7 +64,7 @@ export default function Blogs({ blogs }) {
                     {index > 0 && (
                         <button
                             onClick={prevSlide}
-                            className="absolute left-4 sm:left-4 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
+                            className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
                             aria-label="Previous"
                         >
                             ◀
@@ -80,32 +82,36 @@ export default function Blogs({ blogs }) {
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                     className="flex gap-6 w-full"  
                                 >
-                                    {Array.from({ length: visibleCount }).map((_, offset) => {
-                                        const blog = blogs[(index + offset) % blogs.length];
-                                        return (
-                                            <motion.div
-                                                key={blog?.id}
-                                                className="bg-white rounded-lg shadow-xl flex-shrink-0 overflow-visible mx-auto"
-                                                style={{ width: getCardWidth() }}
-                                                whileHover={{ y: -5 }}
-                                            >
-                                                <div className="p-6">
-                                                    <Image
-                                                        src={blog.image}
-                                                        alt="blog image"
-                                                        width={400}
-                                                        height={250}
-                                                        className="h-40 w-full object-cover mb-4 rounded-md"
-                                                    />
-                                                    <h2 className="text-lg font-medium mb-2">{blog?.title}</h2>
-                                                    <p className="text-sm font-light mb-4 line-clamp-3">{blog?.description}</p>
-                                                    <button className="w-full py-2 border border-black rounded-sm hover:bg-black hover:text-white transition-colors">
-                                                        READ MORE
-                                                    </button>
-                                                </div>
-                                            </motion.div>
-                                        );
-                                    })}
+                                    {blogs.length===0 ? (
+                                        <p>No blogs available</p>
+                                    ):(
+                                        Array.from({ length: visibleCount }).map((_, offset) => {
+                                            const blog = blogs[(index + offset) % blogs.length];
+                                            return (
+                                                <motion.div
+                                                    key={blog?.id}
+                                                    className="bg-white rounded-lg shadow-xl flex-shrink-0 overflow-visible mx-auto"
+                                                    style={{ width: getCardWidth() }}
+                                                    whileHover={{ y: -5 }}
+                                                >
+                                                    <div className="p-6">
+                                                        <Image
+                                                            src={blog.image}
+                                                            alt="blog image"
+                                                            width={400}
+                                                            height={250}
+                                                            className="h-40 w-full object-cover mb-4 rounded-md"
+                                                        />
+                                                        <h2 className="text-lg font-medium mb-2">{blog?.title}</h2>
+                                                        <p className="text-sm font-light mb-4 line-clamp-3">{blog?.description}</p>
+                                                        <button className="w-full py-2 border border-black rounded-sm hover:bg-black hover:text-white transition-colors">
+                                                            READ MORE
+                                                        </button>
+                                                    </div>
+                                                </motion.div>
+                                            );
+                                        })
+                                    )}
                                 </motion.div>
                             </AnimatePresence>
                         </div>
@@ -114,7 +120,7 @@ export default function Blogs({ blogs }) {
                     {index < blogs.length - visibleCount && (
                         <button
                             onClick={nextSlide}
-                            className="absolute right-6 sm:right-4 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
+                            className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-gray-100 px-3 py-2 rounded-full hover:bg-gray-200 transition z-10"
                             aria-label="Next"
                         >
                             ▶

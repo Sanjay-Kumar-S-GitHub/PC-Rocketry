@@ -2,39 +2,34 @@ import BlogTop from "@/components/Blog/BlogTop";
 import Updates from "@/components/Blog/Updates";
 import Blogs from "@/components/Blog/Blogs";
 
+import fs from 'fs';
+import path from 'path';
+
 export const dynamic = "force-static";
 
-export async function getBlogs() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    
+async function getBlogs(){
     try {
-        const res = await fetch(`${baseUrl}/data/blogs.json`);
-        if (!res.ok) throw new Error("Failed to fetch blogs");
-
-        const data = await res.json();
-        return Array.isArray(data) ? data : [];
+        const filePath = path.join(process.cwd(),'public', 'data', 'blogs.json');
+        const jsonData = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(jsonData);
     } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error reading blogs.json:", error);
         return [];
     }
 }
 
-export async function getUpdates() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    
+async function getUpdates(){
     try {
-        const res = await fetch(`${baseUrl}/data/updates.json`);
-        if (!res.ok) throw new Error("Failed to fetch updates");
-
-        const data = await res.json();
-        return Array.isArray(data) ? data : [];
+        const filePath = path.join(process.cwd(),'public', 'data', 'updates.json');
+        const jsonData = fs.readFileSync(filePath, 'utf-8');
+        return JSON.parse(jsonData);
     } catch (error) {
-        console.error("Error fetching update:", error);
+        console.error("Error reading updates.json:", error);
         return [];
     }
 }
 
-const Blog=async() => {
+export default async function Blog() {
     const blogs = await getBlogs();
     const updates = await getUpdates();
 
@@ -46,5 +41,3 @@ const Blog=async() => {
         </>
     );
 }
-
-export default Blog;
