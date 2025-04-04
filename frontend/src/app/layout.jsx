@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${orbitron.variable} ${rajdhani.variable}`}>
       <body className="font-sans">
+        <Navbar />
         {children}
         <Footer />
       </body>
