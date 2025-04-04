@@ -28,7 +28,7 @@ export default function Navbar() {
     <div className="flex flex-row justify-between items-center h-25 px-4 md:px-8 pt-2 bg-transparent absolute text-white text-xl w-full max-w-full">
       <div className="flex items-center gap-4 md:gap-7">
         <SlideIn direction="right" delay={100}>
-          <Link href="/"><img src="/pc-logo.png" className="h-16 w-16 md:h-20 md:w-20" /></Link>
+          <a href="https://physicsclubsvnit.github.io/" target="_blank"><img src="/pc-logo.png" className="h-16 w-16 md:h-20 md:w-20" /></a>
         </SlideIn>
         <SlideIn direction="right" delay={100}>
           <a href="https://www.svnit.ac.in/" target="_blank"><img src="/svnit.png" className="h-16 w-16 md:h-20 md:w-20" /></a>
