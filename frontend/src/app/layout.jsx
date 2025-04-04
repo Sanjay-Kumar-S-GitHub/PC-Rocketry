@@ -18,8 +18,8 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata = {
-  title: "Your Rocketry Team Website",
-  description: "Official website of your college rocketry team",
+  title: "Rocketry Team Website",
+  description: "Official website of Rocketry team of SVNIT, Surat",
 };
 
 export default function RootLayout({ children }) {
